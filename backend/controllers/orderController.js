@@ -93,7 +93,7 @@ const createOrder = async (req, res) => {
   }
 };
 
-// Get all orders (admin) or own orders (customer/agent)
+// Get all orders 
 const getOrders = async (req, res) => {
   try {
     let query = '';
@@ -176,7 +176,7 @@ const getOrderById = async (req, res) => {
   }
 };
 
-// Update order status (agent or admin)
+// Update order status 
 const updateOrderStatus = async (req, res) => {
   const { id } = req.params;
   const { status, note } = req.body;
@@ -197,13 +197,13 @@ const updateOrderStatus = async (req, res) => {
 
     await db.query('UPDATE orders SET status = ? WHERE id = ?', [status, id]);
 
-    // Immutable tracking log
+    
     await db.query(
       'INSERT INTO order_tracking (order_id, status, updated_by, actor_role, note) VALUES (?,?,?,?,?)',
       [id, status, req.user.id, req.user.role, note || null]
     );
 
-    // Free up agent when delivered
+    
     if (status === 'Delivered' && order.agent_id) {
       await db.query('UPDATE delivery_agents SET is_available = TRUE WHERE id = ?', [order.agent_id]);
     }
@@ -222,7 +222,7 @@ const updateOrderStatus = async (req, res) => {
   }
 };
 
-// Assign agent manually (admin)
+// Assign agent manually 
 const assignAgent = async (req, res) => {
   const { id } = req.params;
   const { agentId, auto } = req.body;
