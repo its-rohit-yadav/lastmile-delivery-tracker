@@ -1,6 +1,6 @@
 const db = require('../config/db');
 
-// Haversine formula to calculate distance between two lat/lng points (in km)
+// Haversine formula to calculate distance 
 const haversineDistance = (lat1, lng1, lat2, lng2) => {
   const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -30,7 +30,7 @@ const autoAssignAgent = async (orderId, pickupZoneId) => {
     throw new Error('No available delivery agents at this time.');
   }
 
-  // Pick first agent (zone-matched preferred; if lat/lng available, sort by distance)
+  // Pick first agent 
   const agentsWithCoords = agents.filter(a => a.current_lat && a.current_lng);
 
   let selectedAgent;
