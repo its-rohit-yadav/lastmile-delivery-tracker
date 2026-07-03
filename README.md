@@ -126,7 +126,7 @@ Runs on `http://localhost:3000`.
 
 ## 5. Getting Started (Demo Flow)
 
-1. Log in as admin (`admin@lastmile.com` / `Admin@123`)
+1. Log in as admin (`admin@lastmile.com` / `password`)
 2. Go to **Zones & Areas** → create a couple of zones (e.g. "Bengaluru Central", "Bengaluru East") and add areas with real 6-digit pincodes to each
 3. Go to **Rate Cards** → create rate cards for each zone pair, for both B2B and B2C, with a rate per kg and optional COD surcharge
 4. Go to **Agents** → create 1-2 delivery agent accounts and assign them to zones
