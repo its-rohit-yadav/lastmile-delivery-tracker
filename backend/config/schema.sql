@@ -1,5 +1,5 @@
 -- Last-Mile Delivery Tracker Database Schema
--- Run this file to initialize the database
+
 
 CREATE DATABASE IF NOT EXISTS lastmile_db;
 USE lastmile_db;
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS areas (
   FOREIGN KEY (zone_id) REFERENCES zones(id) ON DELETE CASCADE
 );
 
--- Rate cards table (admin configures B2B/B2C rates per zone pair)
+-- Rate cards table 
 CREATE TABLE IF NOT EXISTS rate_cards (
   id INT AUTO_INCREMENT PRIMARY KEY,
   from_zone_id INT NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS orders (
   FOREIGN KEY (drop_zone_id) REFERENCES zones(id)
 );
 
--- Order tracking history (immutable)
+-- Order tracking history 
 CREATE TABLE IF NOT EXISTS order_tracking (
   id INT AUTO_INCREMENT PRIMARY KEY,
   order_id INT NOT NULL,
@@ -111,6 +111,6 @@ CREATE TABLE IF NOT EXISTS reschedules (
   FOREIGN KEY (order_id) REFERENCES orders(id)
 );
 
--- Default admin user (password: Admin@123)
+-- Default admin user (password: password)
 INSERT IGNORE INTO users (name, email, password, role)
 VALUES ('Admin', 'admin@lastmile.com', '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
