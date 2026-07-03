@@ -24,7 +24,7 @@ const detectZone = async (address) => {
   return null;
 };
 
-// Volumetric weight formula: L x B x H / 5000
+// Volumetric weight 
 const calcVolumetricWeight = (length, breadth, height) => {
   return parseFloat(((length * breadth * height) / 5000).toFixed(2));
 };
