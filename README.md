@@ -86,7 +86,7 @@ mysql -u root -p < config/schema.sql
 
 This creates the `lastmile_db` database, all 7 tables, and a default admin account:
 - Email: `admin@lastmile.com`
-- Password: `Admin@123`
+- Password: `password`
 
 **Start the server:**
 
